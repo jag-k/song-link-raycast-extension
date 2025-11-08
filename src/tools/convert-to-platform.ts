@@ -1,5 +1,5 @@
 import { convertLink, getPlatformLink, getEntityMetadata } from "../utils/song-link-api";
-import { getPlatformByKey, getPlatformByName } from "../utils/platforms";
+import { getPlatform } from "../utils/platforms";
 
 interface ConvertToPlatformParams {
   /**
@@ -34,7 +34,7 @@ export default async function convertToPlatform(params: ConvertToPlatformParams)
     throw new Error("Platform is required");
   }
 
-  const platformConfig = getPlatformByName(platform) || getPlatformByKey(platform);
+  const platformConfig = getPlatform(platform);
   if (!platformConfig) {
     throw new Error(`Unknown platform: ${platform}`);
   }

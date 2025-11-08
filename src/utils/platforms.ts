@@ -33,10 +33,6 @@ export const PLATFORM_MAP: Record<string, Platform> = PLATFORMS.reduce(
   {} as Record<string, Platform>,
 );
 
-export function getPlatformByName(name: string): Platform | undefined {
-  return PLATFORM_MAP[name.toLowerCase()] || PLATFORMS.find((p) => p.name === name);
-}
-
-export function getPlatformByKey(key: string): Platform | undefined {
-  return PLATFORMS.find((p) => p.key === key);
+export function getPlatform(nameOrKey: string): Platform | undefined {
+  return PLATFORM_MAP[nameOrKey] || PLATFORM_MAP[nameOrKey.toLowerCase()];
 }

@@ -1,6 +1,7 @@
-import { Clipboard, showHUD, showToast, Toast } from "@raycast/api";
+import { Clipboard, showHUD } from "@raycast/api";
 import { convertLink, getPlatformLink } from "../utils/song-link-api";
 import { PLATFORMS } from "../utils/platforms";
+import { showFailureToast } from "@raycast/utils";
 
 export async function convertToPlatformCommand(platformName: string) {
   try {
@@ -30,10 +31,6 @@ export async function convertToPlatformCommand(platformName: string) {
     await Clipboard.copy(platformLink.url);
     await showHUD(`✓ Copied ${platformName} link`);
   } catch (error) {
-    await showToast({
-      style: Toast.Style.Failure,
-      title: "Failed to convert link",
-      message: error instanceof Error ? error.message : "Unknown error",
-    });
+    await showFailureToast(error, { title: "Failed to convert link" });
   }
 }

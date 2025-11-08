@@ -1,8 +1,9 @@
-import { List, Clipboard, Icon, showToast, Toast, getPreferenceValues } from "@raycast/api";
+import { List, Clipboard, Icon, getPreferenceValues } from "@raycast/api";
 import { useEffect, useState } from "react";
 import { isValidUrl } from "./utils/song-link-api";
 import { usePlatformLinks } from "./utils/use-platform-links";
 import { PlatformListItem } from "./components/PlatformListItem";
+import { showFailureToast } from "@raycast/utils";
 
 interface Preferences {
   showUnavailable: boolean;
@@ -25,11 +26,7 @@ export default function Command() {
 
   useEffect(() => {
     if (error) {
-      showToast({
-        style: Toast.Style.Failure,
-        title: "Error",
-        message: error,
-      });
+      showFailureToast(error, { title: "Error" });
     }
   }, [error]);
 
