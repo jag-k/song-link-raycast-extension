@@ -1,0 +1,321 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "song-link",
+  "title": "Song.link",
+  "description": "Convert any music platform link to another platform!\n\nSupports: Spotify, iTunes, Apple Music, YouTube, YouTube Music, Pandora, Deezer, Tidal, Amazon, Amazon Music, SoundCloud, Napster, Yandex Music, Anghami, Audiomack, Audius, Boomplay",
+  "icon": "extension-icon.png",
+  "author": "jag-k",
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "categories": [
+    "Productivity",
+    "Communication",
+    "Media"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search-platform-link",
+      "title": "Search Platform Link",
+      "description": "Convert music platform link and view all available platforms",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "showUnavailable",
+          "type": "checkbox",
+          "required": false,
+          "title": "Show Unavailable Platforms",
+          "label": "Show platforms without links",
+          "description": "Display platforms even if no link was found",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "convert-to-spotify",
+      "title": "Convert to Spotify",
+      "description": "Convert clipboard link to Spotify",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-apple-music",
+      "title": "Convert to Apple Music",
+      "description": "Convert clipboard link to Apple Music",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-youtube",
+      "title": "Convert to YouTube",
+      "description": "Convert clipboard link to YouTube",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-youtube-music",
+      "title": "Convert to YouTube Music",
+      "description": "Convert clipboard link to YouTube Music",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-deezer",
+      "title": "Convert to Deezer",
+      "description": "Convert clipboard link to Deezer",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-tidal",
+      "title": "Convert to Tidal",
+      "description": "Convert clipboard link to Tidal",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-soundcloud",
+      "title": "Convert to SoundCloud",
+      "description": "Convert clipboard link to SoundCloud",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-itunes",
+      "title": "Convert to iTunes",
+      "description": "Convert clipboard link to iTunes",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-pandora",
+      "title": "Convert to Pandora",
+      "description": "Convert clipboard link to Pandora",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-amazon",
+      "title": "Convert to Amazon",
+      "description": "Convert clipboard link to Amazon",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-amazon-music",
+      "title": "Convert to Amazon Music",
+      "description": "Convert clipboard link to Amazon Music",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-napster",
+      "title": "Convert to Napster",
+      "description": "Convert clipboard link to Napster",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-yandex-music",
+      "title": "Convert to Yandex Music",
+      "description": "Convert clipboard link to Yandex Music",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-anghami",
+      "title": "Convert to Anghami",
+      "description": "Convert clipboard link to Anghami",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-audiomack",
+      "title": "Convert to Audiomack",
+      "description": "Convert clipboard link to Audiomack",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-audius",
+      "title": "Convert to Audius",
+      "description": "Convert clipboard link to Audius",
+      "mode": "no-view",
+      "disabledByDefault": true
+    },
+    {
+      "name": "convert-to-boomplay",
+      "title": "Convert to Boomplay",
+      "description": "Convert clipboard link to Boomplay",
+      "mode": "no-view",
+      "disabledByDefault": true
+    }
+  ],
+  "tools": [
+    {
+      "name": "get-platforms-list",
+      "title": "Get Platforms List",
+      "description": "Get list of all available music platforms",
+      "instructions": "Use this tool to get a list of all supported music platforms. Returns an array of platforms with their names, API keys, and display names. Use this when the user asks about available platforms or wants to see what platforms are supported.",
+    },
+    {
+      "name": "convert-to-platform",
+      "title": "Convert to Platform",
+      "description": "Convert any music platform link to any other platform!\n\nSupports: Spotify, iTunes, Apple Music, YouTube, YouTube Music, Pandora, Deezer, Tidal, Amazon, Amazon Music, SoundCloud, Napster, Yandex Music, Anghami, Audiomack, Audius, Boomplay",
+      "instructions": "Use this tool to convert a music platform link to another platform. Provide the source URL and the target platform name (e.g., 'Spotify', 'Apple Music', 'YouTube'). The tool will return the converted URL and metadata (title, artist, thumbnail) if available. Use this when the user wants to convert a music link from one platform to another.",
+    }
+  ],
+  "ai": {
+    "evals": [
+      {
+        "input": "@song-link what platforms are supported?",
+        "mocks": {
+          "get-platforms-list": [
+            {
+              "platforms": [
+                {
+                  "name": "Spotify",
+                  "apiKey": "spotify",
+                  "displayName": "Spotify"
+                },
+                {
+                  "name": "Apple Music",
+                  "apiKey": "appleMusic",
+                  "displayName": "Apple Music"
+                },
+                {
+                  "name": "YouTube",
+                  "apiKey": "youtube",
+                  "displayName": "YouTube"
+                }
+              ]
+            }
+          ]
+        },
+        "expected": [
+          {
+            "callsTool": "get-platforms-list"
+          }
+        ]
+      },
+      {
+        "input": "@song-link convert https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC to Apple Music",
+        "mocks": {
+          "convert-to-platform": [
+            {
+              "url": "https://music.apple.com/us/album/example/123456789",
+              "platform": "Apple Music",
+              "metadata": {
+                "title": "Example Song",
+                "artistName": "Example Artist",
+                "thumbnailUrl": "https://example.com/artwork.jpg"
+              }
+            }
+          ]
+        },
+        "expected": [
+          {
+            "callsTool": "convert-to-platform",
+            "withParams": {
+              "url": "https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC",
+              "platform": "Apple Music"
+            }
+          }
+        ]
+      },
+      {
+        "input": "@song-link can you convert this YouTube link to Spotify? https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "mocks": {
+          "convert-to-platform": [
+            {
+              "url": "https://open.spotify.com/track/example",
+              "platform": "Spotify",
+              "metadata": {
+                "title": "Example Track",
+                "artistName": "Example Artist",
+                "thumbnailUrl": "https://example.com/artwork.jpg"
+              }
+            }
+          ]
+        },
+        "expected": [
+          {
+            "callsTool": "convert-to-platform",
+            "withParams": {
+              "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "platform": "Spotify"
+            }
+          }
+        ]
+      },
+      {
+        "input": "@song-link show me all available music platforms",
+        "mocks": {
+          "get-platforms-list": [
+            {
+              "platforms": [
+                {
+                  "name": "Spotify",
+                  "apiKey": "spotify",
+                  "displayName": "Spotify"
+                },
+                {
+                  "name": "Apple Music",
+                  "apiKey": "appleMusic",
+                  "displayName": "Apple Music"
+                },
+                {
+                  "name": "YouTube",
+                  "apiKey": "youtube",
+                  "displayName": "YouTube"
+                },
+                {
+                  "name": "YouTube Music",
+                  "apiKey": "youtubeMusic",
+                  "displayName": "YouTube Music"
+                },
+                {
+                  "name": "Deezer",
+                  "apiKey": "deezer",
+                  "displayName": "Deezer"
+                },
+                {
+                  "name": "Tidal",
+                  "apiKey": "tidal",
+                  "displayName": "Tidal"
+                }
+              ]
+            }
+          ]
+        },
+        "expected": [
+          {
+            "callsTool": "get-platforms-list"
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "@raycast/api": "^1.103.6",
+    "@raycast/utils": "^2.2.2"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
