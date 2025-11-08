@@ -31,6 +31,7 @@ Convert any music platform link to another platform in Raycast!
 ## Screenshots
 
 ![Song.link Raycast Extension in Raycast menu](https://github.com/jag-k/song-link-raycast-extension/raw/main/metadata/song-link-1.png)
+![Song.link Raycast Extension in Raycast AI](https://github.com/jag-k/song-link-raycast-extension/raw/main/metadata/song-link-2.png)
 
 ## Links
 
